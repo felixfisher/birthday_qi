@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冯舒琪 - 生日快乐</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="music-control">
+        <button id="musicToggle" class="music-button">
+            <span class="music-icon">🎵</span>
+        </button>
+    </div>
+    <audio id="bgMusic" loop preload="auto">
+        <source src="world_outside.mp3" type="audio/mpeg">
+        <source src="world_outside.wav" type="audio/wav">
+        <source src="world_outside.flac" type="audio/flac">
+        您的浏览器不支持音频播放
+    </audio>
+
+    <!-- 页面导航 -->
+    <nav class="page-nav">
+        <ul>
+            <li><a href="#hero" class="active">首页</a></li>
+            <li><a href="#timeline">时光倒影</a></li>
+            <li><a href="#wishes">祝福墙</a></li>
+            <li><a href="#surprise">惊喜彩蛋</a></li>
+            <li><a href="#make-a-wish">许愿墙</a></li>
+            <li><a href="#closing">真挚祝福</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 主页 - 欢迎页 -->
+    <section id="hero" class="page-section active">
+        <div class="container">
+            <header>
+                <h1 class="title glow">🎉 Happy Birthday, 冯舒琪！</h1>
+                <div class="birthday-date">1999.05.18</div>
+            </header>
+
+            <div class="glass-card main-card">
+                <div class="card-content">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <p>在你的特别日子里，祝你生日快乐！愿你的每一天都充满阳光和欢笑，愿你的梦想都能实现。</p>
+                            <div class="birthday-countdown">
+                                <h3>距离2025年5月18日生日还有</h3>
+                                <div class="countdown-wrapper" id="countdown">
+                                    <div class="countdown-item">
+                                        <span id="days">00</span>
+                                        <span>天</span>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <span id="hours">00</span>
+                                        <span>时</span>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <span id="minutes">00</span>
+                                        <span>分</span>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <span id="seconds">00</span>
+                                        <span>秒</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <img src="images/image2.jpg" alt="生日祝福" class="zoomable-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-hint">
+                <p>Scroll to begin your journey 🎈</p>
+                <div class="scroll-arrow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 时光倒影页 -->
+    <section id="timeline" class="page-section">
+        <div class="container">
+            <header>
+                <h1 class="section-title glow">时光倒影</h1>
+                <p class="section-desc">记录你成长的珍贵瞬间</p>
+            </header>
+
+            <div class="timeline-container">
+                <div class="timeline-node">
+                    <div class="timeline-year">2000年</div>
+                    <div class="timeline-content">
+                        <div class="memory-image">
+                            <img src="images/image4.jpg" alt="2000年的回忆" class="zoomable-img">
+                        </div>
+                        <div class="memory-text">
+                            <h3>小小的你</h3>
+                            <p>初来到世界上不久的你，被所有人深深爱着</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-node">
+                    <div class="timeline-year">2023年国庆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-gallery">
+                            <div class="gallery-item">
+                                <img src="images/image3.jpg" alt="张掖七彩丹霞" class="zoomable-img">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/image5.jpg" alt="国庆旅行" class="zoomable-img">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/image6.jpg" alt="马蹄寺" class="zoomable-img">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/image7.jpg" alt="平山大峡谷" class="zoomable-img">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/image1.jpg" alt="国庆旅行" class="zoomable-img">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/image8.jpg" alt="国庆旅行" class="zoomable-img">
+                            </div>
+                        </div>
+                        <div class="memory-text">
+                            <h3>国庆旅行</h3>
+                            <p>琪琪勇闯张掖，游览七彩丹霞、马蹄寺、平山大峡谷</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 祝福墙页 -->
+    <section id="wishes" class="page-section">
+        <div class="container">
+            <header>
+                <h1 class="section-title glow">生日祝福墙</h1>
+                <p class="section-desc">柏源 × 琪琪 · 生日祝福墙小剧场</p>
+            </header>
+
+            <div class="wishes-gallery">
+                <div class="wish-card">
+                    <div class="wish-image">
+                        <img src="images/33.jpg" alt="祝福照片" class="zoomable-img">
+                    </div>
+                    <div class="wish-text">
+                        <p class="wish-author">柏源：</p>
+                        <p>「风吹乱了你的发丝，却吹不散我对你的思念。」</p>
+                    </div>
+                </div>
+
+                <div class="wish-card">
+                    <div class="wish-image">
+                        <img src="images/44.jpg" alt="祝福照片" class="zoomable-img">
+                    </div>
+                    <div class="wish-text">
+                        <p class="wish-author">柏源：</p>
+                        <p>「夕阳再美，也不及你在我身旁的温暖。」</p>
+                    </div>
+                </div>
+
+                <div class="wish-card">
+                    <div class="wish-image">
+                        <img src="images/55.jpg" alt="祝福照片" class="zoomable-img">
+                    </div>
+                    <div class="wish-text">
+                        <p class="wish-author">柏源：</p>
+                        <p>「愿为你挡风遮雨，只因你是我心中的唯一。」</p>
+                    </div>
+                </div>
+
+                <div class="wish-card">
+                    <div class="wish-image">
+                        <img src="images/66.jpg" alt="祝福照片" class="zoomable-img">
+                    </div>
+                    <div class="wish-text">
+                        <p class="wish-author">柏源：</p>
+                        <p>「即使前路漫长，有你相伴，便是晴天。」</p>
+                    </div>
+                </div>
+
+                <div class="wish-card">
+                    <div class="wish-image">
+                        <img src="images/77.jpg" alt="祝福照片" class="zoomable-img">
+                    </div>
+                    <div class="wish-text">
+                        <p class="wish-author">柏源：</p>
+                        <p>「握紧你的手，誓言此生不离不弃。」</p>
+                    </div>
+                </div>
+
+                <div class="wish-card">
+                    <div class="wish-image">
+                        <img src="images/88.jpg" alt="祝福照片" class="zoomable-img">
+                    </div>
+                    <div class="wish-text">
+                        <p class="wish-author">柏源：</p>
+                        <p>「亲爱的琪琪，生日快乐！愿你的每一天都如今日般幸福。」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 惊喜彩蛋页 -->
+    <section id="surprise" class="page-section">
+        <div class="container">
+            <header>
+                <h1 class="section-title glow">惊喜彩蛋</h1>
+                <p class="section-desc">为你准备的小惊喜</p>
+            </header>
+
+            <div class="games-container">
+                <div class="glass-card">
+                    <div class="card-content">
+                        <h2 class="card-title">舒琪拼图</h2>
+                        <p class="game-desc">完成拼图，会有小惊喜哦~</p>
+                        <div id="puzzle-container" class="puzzle-container">
+                            <!-- 拼图将通过JS动态生成 -->
+                        </div>
+                        <button id="startPuzzle" class="glow-button">开始游戏</button>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-content">
+                        <h2 class="card-title">生日占卜</h2>
+                        <p class="game-desc">点击下方按钮，获取你的生日祝福诗句</p>
+                        <div id="fortune-container" class="fortune-container">
+                            <p id="fortune-text">你的专属生日祝福诗句将显示在这里~</p>
+                        </div>
+                        <button id="generateFortune" class="glow-button">获取祝福</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 许愿墙页 -->
+    <section id="make-a-wish" class="page-section">
+        <div class="container">
+            <header>
+                <h1 class="section-title glow">生日愿望墙</h1>
+                <p class="section-desc">写下你的生日愿望吧，愿它伴随星星一起闪耀 ✨</p>
+            </header>
+
+            <div class="glass-card">
+                <div class="card-content">
+                    <div class="wish-form">
+                        <textarea id="wishInput" placeholder="在这里写下你的生日愿望..." rows="5"></textarea>
+                        <button id="saveWish" class="glow-button">保存愿望</button>
+                    </div>
+                    <div id="wishDisplay" class="wish-display hidden">
+                        <h3>你的愿望已被星空听见</h3>
+                        <p id="savedWish"></p>
+                        <div class="wishing-stars">
+                            <div class="star"></div>
+                            <div class="star"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 结尾祝福页 -->
+    <section id="closing" class="page-section">
+        <div class="container">
+            <header>
+                <h1 class="section-title glow">真挚祝福</h1>
+            </header>
+
+            <div class="glass-card">
+                <div class="card-content">
+                    <div class="closing-message">
+                        <p class="highlight-text">"无论你在哪里，我永远都是那个会为你鼓掌、为你骄傲的哥哥。"</p>
+                        <div class="signature">— 爱你的家人</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-to-top">
+                <button id="backToTop" class="glow-button">回到顶部</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,910 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+/* 星空背景 */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.stars:before, .stars:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 230px 190px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 250px 250px;
+    opacity: 0.3;
+    animation: stars 10s linear infinite;
+}
+
+.stars:after {
+    background-size: 180px 180px;
+    animation-duration: 15s;
+    animation-delay: 2s;
+}
+
+@keyframes stars {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-250px); }
+}
+
+/* 流星效果 */
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 30%, rgba(255, 255, 255, 0));
+    transform: rotate(-45deg);
+    animation: shooting 1s linear;
+    z-index: 0;
+}
+
+@keyframes shooting {
+    0% {
+        transform: translateX(0) translateY(0) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100px) translateY(100px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* 音乐控制 */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.music-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(15, 14, 71, 0.6);
+    border: 2px solid rgba(187, 134, 252, 0.7);
+    color: #bb86fc;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(187, 134, 252, 0.5);
+    transition: all 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.8);
+}
+
+.music-button.playing {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* 页面导航 */
+.page-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: rgba(15, 14, 71, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 30px;
+    padding: 10px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.page-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.page-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.page-nav a:hover, .page-nav a.active {
+    background: rgba(187, 134, 252, 0.2);
+    color: #bb86fc;
+    opacity: 1;
+}
+
+/* 页面部分 */
+.page-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+/* 标题样式 */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-desc {
+    font-size: 1.2rem;
+    color: #e1e1e1;
+    margin-bottom: 30px;
+}
+
+.birthday-date {
+    font-size: 1.5rem;
+    color: #bb86fc;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+/* 玻璃态卡片 */
+.glass-card {
+    background: rgba(15, 14, 71, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.glass-card.active, .glass-card:hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glass-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #fc6767 0%, #ec8c69 50%, #f64f59 100%);
+    border-radius: 16px 16px 0 0;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+.main-card {
+    border-color: rgba(187, 134, 252, 0.3);
+}
+
+.main-card:before {
+    background: linear-gradient(90deg, #8a2be2 0%, #bb86fc 50%, #7a5af8 100%);
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    color: #bb86fc;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.card-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #bb86fc, transparent);
+}
+
+/* 英雄区内容 */
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 滚动提示 */
+.scroll-hint {
+    text-align: center;
+    margin-top: 30px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.scroll-arrow {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-arrow span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid #bb86fc;
+    border-right: 2px solid #bb86fc;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: scroll 1.5s infinite;
+}
+
+.scroll-arrow span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.scroll-arrow span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-10px, -10px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+}
+
+/* 发光效果 */
+.glow {
+    text-shadow: 0 0 10px rgba(187, 134, 252, 0.7),
+                 0 0 20px rgba(187, 134, 252, 0.5),
+                 0 0 30px rgba(187, 134, 252, 0.3);
+}
+
+/* 倒计时 */
+.birthday-countdown {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.birthday-countdown h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #e1e1e1;
+}
+
+.countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.countdown-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 15px;
+    min-width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.countdown-item span:first-child {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #03dac6;
+}
+
+.countdown-item span:last-child {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-top: 5px;
+}
+
+/* 时间线 */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    margin: 50px 0;
+    position: relative;
+}
+
+.timeline-container:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #bb86fc, #03dac6, transparent);
+    transform: translateX(-50%);
+}
+
+.timeline-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 30px;
+    background: rgba(15, 14, 71, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+}
+
+.timeline-node.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-year {
+    position: absolute;
+    top: -20px;
+    background: rgba(187, 134, 252, 0.2);
+    color: #bb86fc;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
+    z-index: 1;
+}
+
+.timeline-content {
+    width: 100%;
+}
+
+.memory-image {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.memory-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.memory-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.memory-text h3 {
+    color: #03dac6;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* 时间线图片画廊 */
+.timeline-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    height: 250px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* 可缩放图片 */
+.zoomable-img {
+    cursor: zoom-in;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.zoomable-img.zoomed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: none;
+    max-height: none;
+    width: auto;
+    height: auto;
+    z-index: 1000;
+    cursor: zoom-out;
+    box-shadow: none;
+    object-fit: contain;
+}
+
+/* 移除遮罩层相关样式 */
+.zoom-overlay {
+    display: none;
+}
+
+/* 当图片放大时，调整页面其他元素的样式 */
+body.image-zoomed {
+    overflow: hidden;
+}
+
+body.image-zoomed .page-nav,
+body.image-zoomed .music-control {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* 祝福墙样式 */
+.wishes-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.wish-card {
+    background: rgba(15, 14, 71, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wish-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+.wish-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.wish-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.wish-card:hover .wish-image img {
+    transform: scale(1.05);
+}
+
+.wish-text {
+    padding: 20px;
+}
+
+.wish-author {
+    color: #bb86fc;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* 游戏区域样式 */
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.game-desc {
+    margin-bottom: 20px;
+    color: #e1e1e1;
+}
+
+/* 拼图游戏 */
+.puzzle-container {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    margin: 0 auto 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    background: #1a1a1a;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.puzzle-piece {
+    background-size: 300% 300%;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.puzzle-piece:hover {
+    transform: scale(0.95);
+}
+
+/* 占卜区域 */
+.fortune-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* 发光按钮 */
+.glow-button {
+    background: rgba(128, 90, 213, 0.2);
+    color: #bb86fc;
+    border: 1px solid #bb86fc;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+    margin: 0 auto;
+    display: block;
+}
+
+.glow-button:hover {
+    background: rgba(128, 90, 213, 0.4);
+    box-shadow: 0 0 15px rgba(187, 134, 252, 0.8);
+    transform: translateY(-2px);
+}
+
+/* 愿望墙 */
+.wish-form {
+    margin-bottom: 20px;
+}
+
+textarea#wishInput {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    resize: vertical;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+textarea#wishInput:focus {
+    border-color: rgba(187, 134, 252, 0.5);
+}
+
+.wish-display {
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.wish-display.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wish-display h3 {
+    color: #03dac6;
+    margin-bottom: 15px;
+}
+
+.wish-display p {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.wishing-stars {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.star {
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    position: relative;
+    margin: 0 15px;
+    animation: twinkle 1.5s infinite;
+}
+
+.star:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.star:before, .star:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #bb86fc;
+}
+
+.star:before {
+    transform: rotate(45deg);
+}
+
+.star:after {
+    transform: rotate(-45deg);
+}
+
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* 结尾祝福 */
+.closing-message {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.highlight-text {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    position: relative;
+    font-style: italic;
+    color: #e1e1e1;
+}
+
+.highlight-text:before, .highlight-text:after {
+    content: '"';
+    font-size: 3rem;
+    color: rgba(187, 134, 252, 0.3);
+    position: absolute;
+}
+
+.highlight-text:before {
+    top: -20px;
+    left: -10px;
+}
+
+.highlight-text:after {
+    bottom: -40px;
+    right: -10px;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #bb86fc;
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+
+.back-to-top {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 占位图像样式 */
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #302b63, #24243e);
+}
+
+/* 隐藏元素 */
+.hidden {
+    display: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .title, .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 8px 15px;
+    }
+    
+    .page-nav ul {
+        gap: 5px;
+    }
+    
+    .page-nav a {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 1.5rem;
+    }
+    
+    .timeline-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wishes-gallery, .games-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+    }
+    
+    .highlight-text {
+        font-size: 1.4rem;
+    }
+}
+
+/* 添加淡入动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 为拼图空白格添加样式 */
+.puzzle-piece.empty {
+    background-image: none !important;
+}
+
+/* 为卡片添加初始动画 */
+.glass-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.glass-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 调整祝福内容样式 */
+#fortune-text {
+    animation: fadeIn 1s;
+} 
